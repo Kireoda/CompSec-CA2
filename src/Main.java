@@ -1,6 +1,9 @@
+import java.util.Scanner;
+
+
 public class Main {
 public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+    Scanner keyboard = new Scanner(System.in);
 
     try{
         String[] menuItems = {
@@ -13,7 +16,6 @@ public static void main(String[] args) {
         menu.displayMenu();
         menu.handleSelection(keyboard);
 
-        keyboard.close();
     }
     catch(Exception e){
         System.out.println("Invalid selection. Please input a valid number.");

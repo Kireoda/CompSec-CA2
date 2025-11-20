@@ -1,3 +1,6 @@
+import java.util.Scanner;
+import java.io.FileNotFoundException;
+
 public class MenuHandler {
     private String[] menuItems;
 
@@ -23,7 +26,7 @@ public class MenuHandler {
                 System.out.println("Exiting.");
                 break;
             } else if (menuItem == 1) {
-                encryptFile();
+                encryptFile(keyboard);
 
             } else if (menuItem == 2) {
                 decryptFile();
@@ -34,8 +37,11 @@ public class MenuHandler {
         } while (menuItem != -1);
     }
 
-    private void encryptFile() throws FileNotFoundException {
-        System.out.println("Encrypting file...");
+    private void encryptFile(Scanner keyboard) throws FileNotFoundException {
+        System.out.println("Please enter the filename to encrypt:");
+        String fileName = keyboard.nextLine();
+        System.out.println(EncryptAndDecryptUtil.encryptFile(fileName));
+
     }
     private void decryptFile() throws FileNotFoundException {
         System.out.println("Decrypting file...");
