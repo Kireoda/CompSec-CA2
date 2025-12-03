@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 
 public class MenuHandler {
-    private String[] menuItems;
+    private final String[] menuItems;
 
     public MenuHandler(String[] menuItems) {
         this.menuItems = menuItems;
@@ -17,8 +17,10 @@ public class MenuHandler {
     }
 
     public void handleSelection(Scanner keyboard) throws FileNotFoundException {
-        int menuItem;
+        int menuItem = 0;
         do {
+            displayMenu();
+            try{
             menuItem = keyboard.nextInt();
             keyboard.nextLine();
 
@@ -29,21 +31,30 @@ public class MenuHandler {
                 encryptFile(keyboard);
 
             } else if (menuItem == 2) {
-                decryptFile();
+                decryptFile(keyboard);
 
             } else {
                 System.out.println("Invalid selection. Please input a valid number.");
             }
+        } catch (Exception e) {
+            System.out.println("Invalid input. Please input a valid number.");
+            keyboard.nextLine();
+        }
         } while (menuItem != -1);
     }
 
-    private void encryptFile(Scanner keyboard) throws FileNotFoundException {
+    private void encryptFile(Scanner keyboard) throws Exception {
         System.out.println("Please enter the filename to encrypt:");
         String fileName = keyboard.nextLine();
-        System.out.println(EncryptAndDecryptUtil.encryptFile(fileName));
+        EncryptAndDecryptUtil.encryptFile(fileName);
 
     }
-    private void decryptFile() throws FileNotFoundException {
-        System.out.println("Decrypting file...");
+    private void decryptFile(Scanner keyboard) throws Exception {
+        System.out.println("Please enter the filename to decrypt:");
+        String fileName = keyboard.nextLine();
+
+        System.out.println("Please enter the AES key:");
+        String keyHex = keyboard.nextLine().trim();
+        EncryptAndDecryptUtil.decryptFile(fileName, keyHex);
     }
 }

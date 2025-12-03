@@ -13,7 +13,6 @@ public static void main(String[] args) {
         };
 
         MenuHandler menu = new MenuHandler(menuItems);
-        menu.displayMenu();
         menu.handleSelection(keyboard);
 
     }
