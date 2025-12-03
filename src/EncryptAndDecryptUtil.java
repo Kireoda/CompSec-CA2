@@ -29,11 +29,10 @@ public class EncryptAndDecryptUtil {
             // Output info
             System.out.println("File encrypted.");
             System.out.println("Encrypted data saved to ciphertext.txt");
-            System.out.println("KEY (hex): " + keyHex);
+            System.out.println("Copy key to decrypt. KEY (hex): " + keyHex);
 
         } catch (Exception e) {
-            System.out.println("Error encrypting file.");
-            e.printStackTrace();
+            System.out.println("Failed to encrypt the file. Make sure it is readable or the file name is correct.");
         }
     }
 
@@ -80,8 +79,7 @@ public class EncryptAndDecryptUtil {
             System.out.println("Decrypted data saved to plaintext.txt");
 
         } catch (Exception e) {
-            System.out.println("Error decrypting file.");
-            e.printStackTrace();
+            System.out.println("Failed to decrypt the file. The key or file may be incorrect.");
         }
     }
 
