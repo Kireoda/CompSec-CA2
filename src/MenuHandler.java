@@ -87,9 +87,8 @@ public class MenuHandler {
             } else {
                 break;
             }
-
-            EncryptAndDecryptUtil.decryptFile(fileName, keyHex);
         }
+        EncryptAndDecryptUtil.decryptFile(fileName, keyHex);
     }
 
 }

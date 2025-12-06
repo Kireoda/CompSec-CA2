@@ -9,7 +9,7 @@ public static void main(String[] args) {
         String[] menuItems = {
                 "Encrypt a file",
                 "Decrypt a file",
-                "Exit appplication"
+                "Exit application"
         };
 
         MenuHandler menu = new MenuHandler(menuItems);
